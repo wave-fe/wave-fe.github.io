@@ -17,11 +17,11 @@
                 jsonp: 'callback',
                 success: function (param) {
                     var script = document.createElement('script');
-                    script.src = '//xiongzhang.baidu.com/sdk/c.js?appid=' + param[1].appid
-                        + '&url=' + param[1].url
-                        + '&timestamp=' + param[1].timestamp
-                        + '&nonce_str=' + param[1].nonce_str
-                        + '&signature=' + param[1].signature;
+                    script.src = '//xiongzhang.baidu.com/sdk/c.js?appid=' + param.appid
+                        + '&url=' + param.url
+                        + '&timestamp=' + param.timestamp
+                        + '&nonce_str=' + param.nonce_str
+                        + '&signature=' + param.signature;
                     document.head.appendChild(script);
                     script.onload = function () {
                         cambrian.bar({
