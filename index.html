@@ -2,8 +2,40 @@
   <head>
     <meta name="baidu-site-verification" content="mZjI9gEe3c" />
     <title>My title</title>
+    <script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
   </head>
   <body>
-    page contents
+      <script>
+          $.ajax({
+                type: 'GET',
+                // url: 'http://bjyz-linyi05.epc.baidu.com:8500/mp/test/common?method=sdk',
+                url: 'http://bjyz-linyi05.epc.baidu.com:8888/mp/api/jssdkdemo',
+                data: {
+                    abilities: 'bar,render,subscribe,invokeIM,follow,share,login'
+                },
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                success: function (param) {
+                    var script = document.createElement('script');
+                    script.src = '//xiongzhang.baidu.com/sdk/c.js?appid=' + param[1].appid
+                        + '&url=' + param[1].url
+                        + '&timestamp=' + param[1].timestamp
+                        + '&nonce_str=' + param[1].nonce_str
+                        + '&signature=' + param[1].signature;
+                    document.head.appendChild(script);
+                    script.onload = function () {
+                        cambrian.bar({
+                            data: {
+                                type: 'head'
+                            }
+                        });
+                    }
+                },
+                error: function (data) {
+                    console.log('error');
+                    console.log(data);
+                }
+            });
+      </script>
   </body>
 </html>
