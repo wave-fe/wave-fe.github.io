@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <meta name="baidu-site-verification" content="mZjI9gEe3c" />
+    <title>My title</title>
+    <script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+  </head>
+  <body>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p id="anchor">文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <p>文章内容</p>
+      <script>
+          $.ajax({
+                type: 'GET',
+                // url: 'http://bjyz-linyi05.epc.baidu.com:8500/mp/test/common?method=sdk',
+                url: 'https://xiongzhang.baidu.com/mp/demo/jssdk',
+                data: {
+                    abilities: 'bar,render,subscribe,invokeIM,follow,share,login'
+                },
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                success: function (param) {
+                    var script = document.createElement('script');
+                    script.src = '//xiongzhang.baidu.com/sdk/c.js?appid=' + param.appid
+                        + '&url=' + param.url
+                        + '&timestamp=' + param.timestamp
+                        + '&nonce_str=' + param.nonce_str
+                        + '&signature=' + param.signature;
+                    document.head.appendChild(script);
+                    script.onload = function () {
+                        cambrian.bar({
+                            data: {
+                                type: 'body'
+                            }
+                        });
+                    }
+                },
+                error: function (data) {
+                    console.log('error');
+                    console.log(data);
+                }
+            });
+      </script>
+  </body>
+</html>
